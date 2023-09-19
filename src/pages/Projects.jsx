@@ -9,40 +9,41 @@ function Projects() {
         <h1 className="text-3xl  bg-[#100F15] p-5 z-[5] text-center">
           Projects
         </h1>
-        <hr className="w-[90%] absolute z-[2] opacity-50 h-px bg-red-400 border-0"></hr>
+        <hr className="w-[50%] absolute z-[2] opacity-50 h-px bg-red-400 border-0"></hr>
       </div>
       <div className="projects-wrapper-content flex w-full items-center justify-center py-16">
-        <div className="projects-grid grid grid-cols-2 gap-16">
+        <div className="projects-grid grid grid-cols-2 gap-16 flex-wrap">
           {projData.map((item) => {
             return (
-              <div className="project-item flex gap-5 w-full h-[100%]">
+              <div className="project-item flex gap-5 w-full h-[100%] px-5">
                 <div className="project-image overflow-hidden rounded-xl w-[400px]">
                   <a href={item.url}>
                     <img
-                      className="w-[100%] h-[100%] object-cover"
+                      className="w-[100%] h-[100%] object-cover border-red-700 border-2 rounded-2xl"
                       src={`${process.env.PUBLIC_URL}/images/${item.image}`}
                       alt={item.name}
                     />
                   </a>
                 </div>
                 <div className="project-info flex flex-col gap-10 h-[100%] justify-between">
-                  <div className="project-text flex gap-2 flex-col">
+                  <div className="project-text flex gap-5 flex-col">
                     <a href={item.url} className="text-2xl text-red-500">
                       {item.name}
                     </a>
-                    <p className="w-min-[5rem] w-max-[20rem] w-[15vw]">
-                      {item.description}
-                    </p>
-                  </div>
-                  <div className="project-tech flex gap-2 flex-wrap">
+                    <div className="project-tech flex gap-2 flex-wrap">
                     {item.tech.map((tech) => {
                       return (
-                        <h2 className="py-[0.2rem] px-1 bg-slate-900 rounded-lg">
+                        <h2 className="py-[0.2rem] px-[0.3rem] bg-slate-900 rounded-lg text-xs">
                           {tech}
                         </h2>
                       );
                     })}
                   </div>
+                    <p className="w-min-[5rem] w-max-[20rem] w-[15vw]">
+                      {item.description}
+                    </p>
+                  </div>
+                  
                   <div className="project-links flex gap-2">
                     <a
                       href={item.url}
