@@ -10,7 +10,6 @@ function Contact() {
     setMessageSent(true);
     const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
     const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
-    console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
       (result) => {
         console.log(result.text);
