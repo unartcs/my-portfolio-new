@@ -7,7 +7,7 @@ function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
     setMessageSent(true);
-    emailjs.sendForm(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, form.current, process.env.EMAILJS_PUBLIC_KEY)
+    emailjs.sendForm(`${process.env.EMAILJS_SERVICE_ID}`, `${process.env.EMAILJS_TEMPLATE_ID}`, form.current, `${process.env.EMAILJS_PUBLIC_KEY}`)
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -26,7 +26,7 @@ function Contact() {
         <hr className="w-[50%] absolute z-[2] opacity-50 h-px bg-red-400 border-0"></hr>
       </div>
       <div className="contact-content h-[100%] flex w-full items-center justify-center gap-[5%]">
-      {!messageSent ? 
+      {messageSent ? 
         <div className="form-wrapper">
           <form
           ref={form} onSubmit={sendEmail}
@@ -68,7 +68,7 @@ function Contact() {
           </form>
         </div>
         : 
-        <div className="thanks-wrapper flex flex-col gap-10  justify-center [&>*]:text-white w-[450px] items-center text-2xl border-2 py-20 bg-green-950">
+        <div className="thanks-wrapper flex flex-col gap-10  justify-center [&>*]:text-white w-[450px] items-center text-2xl border-2 py-20">
           <p>Message sent!</p>
           <p>Thank you for contacting me</p>
           <p>I will contact you shortly</p>
