@@ -4,21 +4,23 @@ import emailjs from "@emailjs/browser";
 function Contact() {
   const form = useRef();
   const [messageSent, setMessageSent] = useState(false);
-  const SERVICE_ID = process.env.EMAILJS_SERVICE_ID;
-  const TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID;
   const PUBLIC_KEY = 'Spel8tJNCNHTwOC7R';
   const sendEmail = (e) => {
     e.preventDefault();
     setMessageSent(true);
-    console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
+    const SERVICE_ID = process.env.EMAILJS_SERVICE_ID;
+    const TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID;  
+    setTimeout(()=> {
+      console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    }, 2000)
   };
   return (
     <div
