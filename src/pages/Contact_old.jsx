@@ -1,19 +1,15 @@
-import React, {  useRef, useState } from "react";
-import emailjs from '@emailjs/browser';
+import React, { useState } from "react";
 
 function Contact() {
-  const form = useRef();
-  const [messageSent, setMessageSent] = useState(false);
-  const sendEmail = (e) => {
-    e.preventDefault();
-    setMessageSent(true);
-    emailjs.sendForm(process.env.EMAILJS_SERVICE_ID, process.env.EMAILJS_TEMPLATE_ID, form.current, process.env.EMAILJS_PUBLIC_KEY)
-      .then((result) => {
-          console.log(result.text);
-      }, (error) => {
-          console.log(error.text);
-      });
-  };
+  const [name, setName] = useState();
+  const [number, setNumber] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+  // const resend = new Resend(process.env.RESEND_API_KEY)
+  async function sendMail(event) {
+    event.preventDefault();
+    console.log(name, number, email, message);
+  }
   return (
     <div
       className="contact-wrapper bg-[#100F15] z-[10] relative h-[90%]"
@@ -26,10 +22,10 @@ function Contact() {
         <hr className="w-[50%] absolute z-[2] opacity-50 h-px bg-red-400 border-0"></hr>
       </div>
       <div className="contact-content h-[100%] flex w-full items-center justify-center gap-[5%]">
-      {!messageSent ? 
         <div className="form-wrapper">
           <form
-          ref={form} onSubmit={sendEmail}
+            action="https://formsubmit.co/unartcs@gmail.com"
+            method="POST"
             className="flex flex-col gap-10  justify-center [&>*]:p-2  [&>*]:border-[#e7e5e5] [&>*]:border-[0.5px] [&>*]:rounded-lg [&>*]:bg-[#191629] [&>*]:text-white"
           >
             <input
@@ -39,6 +35,8 @@ function Contact() {
               required
               name="name"
               id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             ></input>
             <input
               className="w-[450px] h-[35px] focus:bg-slate-600"
@@ -47,13 +45,17 @@ function Contact() {
               required
               name="email"
               id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             ></input>
             <input
               className="w-[450px] h-[35px] focus:bg-slate-600"
               type={"number"}
               placeholder="Phone Number (Optional)..."
-              name="phone"
+              name="number"
               id="number"
+              value={number}
+              onChange={(e) => setNumber(e.target.value)}
             ></input>
             <textarea
               className="w-[450px] h-[200px] focus:bg-slate-600 resize-none"
@@ -61,20 +63,15 @@ function Contact() {
               required
               name="message"
               id="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             ></textarea>
-            <button className="p-5 text-white hover:bg-slate-600" value='Send'>
+            <button className="p-5 text-white hover:bg-slate-600">
               Message Me!
             </button>
           </form>
         </div>
-        : 
-        <div className="thanks-wrapper flex flex-col gap-10  justify-center [&>*]:text-white w-[450px] items-center text-2xl border-2 py-20 bg-green-950">
-          <p>Message sent!</p>
-          <p>Thank you for contacting me</p>
-          <p>I will contact you shortly</p>
-        </div>
-        }
-        <div className="contact-info-wrapper flex flex-col gap-10">
+        <div className="contact-info-wrapper flex flex-col gap-10 mb-32">
           <a
             href="mailto:unartcs@gmail.com"
             target="_blank"
