@@ -34,6 +34,7 @@ function Hero() {
     
       className="hero-wrapper flex flex-col items-center justify-center h-[100%] bg-[#100F15] gap-5 text-white font-neon z-20"
       ref={bgRef}
+      id='navbar'
     >
           <Navbar/>
 

@@ -4,7 +4,7 @@ import ProjectData from "../data/ProjectList";
 function Projects() {
   const [projData, setProjData] = useState(ProjectData);
   return (
-    <div className="projects-wrapper flex items-center flex-col relative  bg-[#100F15] text-white ">
+    <div className="projects-wrapper flex items-center flex-col relative  bg-[#100F15] text-white" id='projects'>
       <div className="projects-wrapper-header items-center relative w-[100%] text-center flex justify-center">
         <h1 className="text-3xl  bg-[#100F15] p-5 z-[5] text-center">
           Projects
@@ -17,7 +17,9 @@ function Projects() {
             return (
               <div className="project-item flex gap-5 w-full h-[100%] px-5">
                 <div className="project-image overflow-hidden rounded-xl w-[400px]">
-                  <a href={item.url}>
+                  <a href={item.url}
+                  target="_blank" rel="noopener noreferrer"
+                  >
                     <img
                       className="w-[100%] h-[100%] object-cover border-red-700 border-2 rounded-2xl"
                       src={`${process.env.PUBLIC_URL}/images/${item.image}`}
@@ -27,7 +29,8 @@ function Projects() {
                 </div>
                 <div className="project-info flex flex-col gap-10 h-[100%] justify-between">
                   <div className="project-text flex gap-5 flex-col">
-                    <a href={item.url} className="text-2xl text-red-500">
+                    <a href={item.url} className="text-2xl text-red-500"
+                    target="_blank" rel="noopener noreferrer">
                       {item.name}
                     </a>
                     <div className="project-tech flex gap-2 flex-wrap">
@@ -46,6 +49,7 @@ function Projects() {
                   
                   <div className="project-links flex gap-2">
                     <a
+                    target="_blank" rel="noopener noreferrer"
                       href={item.url}
                       className="text-xl py-[0.1rem] px-2 bg-white text-black hover:bg-slate-500"
                     >
@@ -53,6 +57,7 @@ function Projects() {
                     </a>
                     {item.source_url && (
                       <a
+                      target="_blank" rel="noopener noreferrer"
                         href={item.source_url}
                         className="text-xl py-[0.1rem] px-2 bg-white text-black hover:bg-slate-500"
                       >

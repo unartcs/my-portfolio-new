@@ -2,7 +2,7 @@ import React from "react";
 
 function Contact() {
   return (
-    <div className="contact-wrapper bg-[#100F15] z-[10] relative h-[90%]">
+    <div className="contact-wrapper bg-[#100F15] z-[10] relative h-[90%]" id='contact'>
       <div className="contact-wrapper-header absolute w-[100%] text-center flex justify-center items-center top-0">
         <h1 className="text-3xl bg-[#100F15] p-5 z-[5] text-center text-white">
           Contact
@@ -38,18 +38,18 @@ function Contact() {
           </form>
         </div>
         <div className="contact-info-wrapper flex flex-col gap-10 mb-32">
-          <a href="mailto:unartcs@gmail.com">
+          <a href="mailto:unartcs@gmail.com" target="_blank" rel="noopener noreferrer">
             <i className="devicon-google-plain text-center text-red-500 flex gap-2 text-2xl hover:text-slate-300">
               <p>Email (unartcs@gmail.com)</p>
             </i>
           </a>
 
-          <a href="https://www.linkedin.com/in/daniel-cohen-dc/">
+          <a href="https://www.linkedin.com/in/daniel-cohen-dc/" target="_blank" rel="noopener noreferrer">
             <i className="devicon-linkedin-plain text-center text-red-500 flex gap-2 text-2xl hover:text-slate-300">
               <p>Linkedin (@daniel-cohen-dc)</p>
             </i>
           </a>
-          <a href="https://github.com/unartcs">
+          <a href="https://github.com/unartcs" target="_blank" rel="noopener noreferrer">
             <i className="devicon-github-plain icon text-center text-red-500 flex gap-2 text-2xl hover:text-slate-300">
               <p>Github (@unartcs)</p>
             </i>

@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="about-wrapper flex-col flex h-[100%]  gap-20 [&>*]:font-ananada bg-[#100F15] relative justify-center items-center">
+    <div className="about-wrapper flex-col flex h-[100%]  gap-20 [&>*]:font-ananada bg-[#100F15] relative justify-center items-center" id='about'>
       <div className="about-wrapper-header absolute w-[100%] text-center flex justify-center items-center top-0 ">
         <h1 className="text-3xl  bg-[#100F15] p-5 z-[5] text-center text-white">
           About
