@@ -6,7 +6,7 @@ function Contact() {
   const [messageSent, setMessageSent] = useState(false);
   const SERVICE_ID = process.env.EMAILJS_SERVICE_ID;
   const TEMPLATE_ID = process.env.EMAILJS_TEMPLATE_ID;
-  const PUBLIC_KEY = process.env.EMAILJS_PUBLIC_KEY;
+  const PUBLIC_KEY = 'Spel8tJNCNHTwOC7R';
   const sendEmail = (e) => {
     e.preventDefault();
     setMessageSent(true);
