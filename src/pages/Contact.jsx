@@ -26,7 +26,7 @@ function Contact() {
         <hr className="w-[50%] absolute z-[2] opacity-50 h-px bg-red-400 border-0"></hr>
       </div>
       <div className="contact-content h-[100%] flex w-full items-center justify-center gap-[5%]">
-      {messageSent ? 
+      {!messageSent ? 
         <div className="form-wrapper">
           <form
           ref={form} onSubmit={sendEmail}
