@@ -6,6 +6,9 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
+      'sans': ['ui-sans-serif', 'system-ui'],
+      'serif': ['ui-serif', 'Georgia'],
+      'mono': ['ui-monospace', 'SFMono-Regular'],
       'neon': ['NeonAndroid','sans-serif'],
       'ananada': ['AnandaBlack','sans-serif']
     }

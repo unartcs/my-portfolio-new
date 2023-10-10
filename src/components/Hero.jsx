@@ -38,8 +38,8 @@ function Hero() {
     >
           <Navbar/>
 
-      <h1 className="hero-title text-8xl z-20">Daniel Cohen</h1>
-      <h2 className="hero-subtext text-4xl z-20">Front-end developer</h2>
+      <h1 className="hero-title text-8xl z-20 max-sm:text-6xl max-[420px]:text-2xl">Daniel Cohen</h1>
+      <h2 className="hero-subtext text-4xl z-20  max-sm:text-2xl max-[420px]:text-base">Front-end developer</h2>
     </div>
   );
 }
